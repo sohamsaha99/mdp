@@ -1,0 +1,1113 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"data.",
+				"data.frame\t{base}"
+			],
+			[
+				"SIG",
+				"SIGMA_0"
+			],
+			[
+				"make",
+				"makeplot"
+			],
+			[
+				"mu",
+				"mu_1"
+			],
+			[
+				"condi",
+				"conditional_mean"
+			],
+			[
+				"missi",
+				"missing_location"
+			],
+			[
+				"sigm",
+				"sigma_21"
+			],
+			[
+				"G",
+				"G_square"
+			],
+			[
+				"n_",
+				"n_iplus"
+			],
+			[
+				"fis",
+				"fisher_pvalue"
+			],
+			[
+				"col",
+				"columnCount"
+			],
+			[
+				"week",
+				"weekend"
+			],
+			[
+				"my",
+				"my-graph"
+			],
+			[
+				"S",
+				"Scatter"
+			],
+			[
+				"buye",
+				"buyer_list\tstatement"
+			],
+			[
+				"rea",
+				"read_csv\tfunction"
+			],
+			[
+				"daily_",
+				"daily_flexibility\tparam"
+			],
+			[
+				"dail",
+				"daily_seasonality=\tparam"
+			],
+			[
+				"weekly",
+				"weekly_flexibility\tparam"
+			],
+			[
+				"weekl",
+				"weekly_seasonality=\tparam"
+			],
+			[
+				"changepoint_pr",
+				"changepoint_prior_scale=\tparam"
+			],
+			[
+				"_",
+				"_summary"
+			],
+			[
+				"re",
+				"read_csv\tfunction"
+			],
+			[
+				"cont",
+				"contour\tstatement"
+			],
+			[
+				"imgc",
+				"imgContours\tstatement"
+			],
+			[
+				"padd",
+				"padding\tproperty"
+			],
+			[
+				"conv_",
+				"conv_deg0"
+			],
+			[
+				"propo",
+				"proposed_0deg"
+			],
+			[
+				"th",
+				"th\tTag"
+			],
+			[
+				"di",
+				"div\tTag"
+			],
+			[
+				"r-st",
+				"r-stack"
+			],
+			[
+				"fade",
+				"fade-out"
+			],
+			[
+				"fa",
+				"fade-in"
+			],
+			[
+				"fad",
+				"fade-in-then-semi-out"
+			],
+			[
+				"background-c",
+				"background-color\tproperty"
+			],
+			[
+				"ba",
+				"background-color\tproperty"
+			],
+			[
+				"fae",
+				"fade-out"
+			],
+			[
+				"fra",
+				"fragment"
+			],
+			[
+				"mar",
+				"margin\tproperty"
+			],
+			[
+				"fo",
+				"font-size\tproperty"
+			],
+			[
+				"pa",
+				"padding-left\tproperty"
+			],
+			[
+				"margi",
+				"margin-right\tproperty"
+			],
+			[
+				"border-r",
+				"border-right\tproperty"
+			],
+			[
+				"inl",
+				"inline\tdisplay"
+			],
+			[
+				"inli",
+				"inline-block\tdisplay"
+			],
+			[
+				"list",
+				"list-style-type\tproperty"
+			],
+			[
+				"alig",
+				"text-align\tproperty"
+			],
+			[
+				"black",
+				"blackTheme"
+			],
+			[
+				"bas",
+				"base\tTag"
+			],
+			[
+				"colk",
+				"colkey = \tArguments"
+			],
+			[
+				"li",
+				"library"
+			],
+			[
+				"ju",
+				"jump"
+			],
+			[
+				"prin",
+				"print\t{base}"
+			],
+			[
+				"exp",
+				"expr = \tArguments"
+			],
+			[
+				"try",
+				"tryCatch\t{base}"
+			],
+			[
+				"nro",
+				"nrow = \tArguments"
+			],
+			[
+				"lowe",
+				"lower.tail = \tArguments"
+			],
+			[
+				"err",
+				"error"
+			],
+			[
+				"erro",
+				"error1"
+			],
+			[
+				"all",
+				"allocation"
+			],
+			[
+				"error",
+				"error2"
+			],
+			[
+				"as.nu",
+				"as.numeric\t{base}"
+			],
+			[
+				"low",
+				"lower.tail = \tArguments"
+			],
+			[
+				"lengt",
+				"length\t{base}"
+			],
+			[
+				"nr",
+				"nrow = \tArguments"
+			],
+			[
+				"persp",
+				"persp3D\t{plot3D}"
+			],
+			[
+				"sum_wt",
+				"sum_wt_yz"
+			],
+			[
+				"sum_",
+				"sum_wt_z"
+			],
+			[
+				"repli",
+				"replicate\t{base}"
+			],
+			[
+				"ncol",
+				"ncol = \tArguments"
+			],
+			[
+				"tri",
+				"triangular_2d"
+			],
+			[
+				"trian",
+				"triangular"
+			],
+			[
+				"leng",
+				"length\t{base}"
+			],
+			[
+				"pers",
+				"persp3D\t{plot3D}"
+			],
+			[
+				"sugg",
+				"suggestion\tstatement"
+			],
+			[
+				"feed",
+				"feedurl\tstatement"
+			],
+			[
+				"chec",
+				"checkXkcd\tfunction"
+			],
+			[
+				"upda",
+				"updateUrl\tfunction"
+			],
+			[
+				"mess",
+				"messenger_extensions"
+			],
+			[
+				"web",
+				"webview_height_ratio"
+			],
+			[
+				"ogl",
+				"oglafindex"
+			],
+			[
+				"phd",
+				"phdindex\tstatement"
+			],
+			[
+				"sugges",
+				"suggestion"
+			],
+			[
+				"ge",
+				"generic"
+			],
+			[
+				"templ",
+				"template_type"
+			],
+			[
+				"du",
+				"dumps\tfunction"
+			],
+			[
+				"respon",
+				"response_msg"
+			],
+			[
+				"jpe",
+				"jpeg\tInstalled Package"
+			],
+			[
+				"Y",
+				"Y_star_hat"
+			],
+			[
+				"Y_st",
+				"Y_star"
+			],
+			[
+				"lege",
+				"legend = \tArguments"
+			],
+			[
+				"length",
+				"length.out"
+			],
+			[
+				"repl",
+				"replace = \tArguments"
+			],
+			[
+				"npr",
+				"npr_fast"
+			],
+			[
+				"Wt_do",
+				"WT_dot_X"
+			],
+			[
+				"WT_do",
+				"WT_dot_XSQ"
+			],
+			[
+				"WT_dot",
+				"WT_dot_XSQ"
+			],
+			[
+				"leave_one_out_fo",
+				"leave_one_out_from_npr_scratch"
+			],
+			[
+				"sigma",
+				"sigmainv"
+			],
+			[
+				"leave",
+				"leave_one_out_frpm_scratch"
+			],
+			[
+				"len",
+				"length\t{base}"
+			],
+			[
+				"which",
+				"which.min\t{base}"
+			],
+			[
+				"qn",
+				"qnorm\t{stats}"
+			],
+			[
+				"pur",
+				"purple"
+			],
+			[
+				"X",
+				"X_tr"
+			],
+			[
+				"wei",
+				"weights = \tArguments"
+			],
+			[
+				"rni",
+				"runif\t{stats}"
+			],
+			[
+				"uni",
+				"unique\t{base}"
+			],
+			[
+				"lo",
+				"load"
+			],
+			[
+				"stat",
+				"status"
+			],
+			[
+				"comic",
+				"comic_message\tfunction"
+			],
+			[
+				"tr",
+				"try\tTry/Except"
+			],
+			[
+				"bu",
+				"business_name"
+			],
+			[
+				"sell",
+				"seller_address_5\tstatement"
+			],
+			[
+				"selle",
+				"seller_address_2\tstatement"
+			],
+			[
+				"iete",
+				"item_line3\tstatement"
+			],
+			[
+				"item",
+				"item_line2\tstatement"
+			],
+			[
+				"it",
+				"item_line1\tstatement"
+			],
+			[
+				"ord",
+				"order_date\tstatement"
+			],
+			[
+				"inc",
+				"invoice_number\tstatement"
+			],
+			[
+				"addes",
+				"address_3\tstatement"
+			],
+			[
+				"addre",
+				"address_3"
+			],
+			[
+				"add",
+				"address_2\tstatement"
+			],
+			[
+				"al",
+				"align"
+			],
+			[
+				"ht",
+				"html"
+			],
+			[
+				"urln",
+				"urlnumber\tstatement"
+			],
+			[
+				"str",
+				"strip"
+			],
+			[
+				"link",
+				"links\tstatement"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "2048.py",
+			"settings":
+			{
+				"buffer_size": 1846,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "# 2048.py"
+			}
+		},
+		{
+			"file": "main.py",
+			"settings":
+			{
+				"buffer_size": 1034,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "from"
+			}
+		},
+		{
+			"file": "dino.py",
+			"settings":
+			{
+				"buffer_size": 1306,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "predictCartPole.py",
+			"settings":
+			{
+				"buffer_size": 340,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "logic.py",
+			"settings":
+			{
+				"buffer_size": 6401,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "# logic.py to be"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		],
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tv",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"terv",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"terminusv",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"terminus",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"terinusv",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"terminusvi",
+				"Terminus: Open Default Shell in Tab (View)"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ter",
+				"Terminus: Reset"
+			],
+			[
+				"R",
+				"Set Syntax: R"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Install Package Control"
+			],
+			[
+				"pyth",
+				"Build With: Python"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 151.0,
+		"history":
+		[
+			"1",
+			"R",
+			"p",
+			"21120",
+			"2223",
+			"2+3"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/riddhiman/marks_agr.txt",
+		"/home/riddhiman/agr_nr.R",
+		"/home/riddhiman/pres/reveal.js/index.html",
+		"/home/riddhiman/3.19.R",
+		"/home/riddhiman/3.16.R",
+		"/home/riddhiman/3.6.R",
+		"/media/riddhiman/Local Disc 2/Riddhiman Saha/M1,1/Categorical Data Analysis/3.19.R",
+		"/home/riddhiman/projects/pd/PowerDomain/app.py",
+		"/home/riddhiman/projects/pd/PowerDomain/csvData.py",
+		"/home/riddhiman/projects/pd/PowerDomain/Procfile",
+		"/home/riddhiman/projects/pd/app.py",
+		"/home/riddhiman/projects/pd/utils.py",
+		"/home/riddhiman/projects/pd/main.py",
+		"/home/riddhiman/projects/pd/summarize_buyer.py",
+		"/home/riddhiman/projects/pd/test2.py",
+		"/home/riddhiman/projects/pd/test.py",
+		"/home/riddhiman/projects/pd/Data/summary.csv",
+		"/home/riddhiman/projects/pd/csvData.py",
+		"/home/riddhiman/projects/cv/utils.py",
+		"/home/riddhiman/projects/cv/markread.py",
+		"/home/riddhiman/.config/sublime-text-3/Packages/Anaconda/README.md",
+		"/home/riddhiman/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/riddhiman/pres/reveal.js/summary.html",
+		"/home/riddhiman/pres/reveal.js/pp.html",
+		"/home/riddhiman/cp/main2.R",
+		"/home/riddhiman/pres/reveal.js/example.html",
+		"/home/riddhiman/report/index.html",
+		"/home/riddhiman/pres/reveal.js/demo.html",
+		"/home/riddhiman/pres/reveal.js/package.json",
+		"/home/riddhiman/cp/test.R",
+		"/home/riddhiman/cp/main3.R",
+		"/home/riddhiman/cp/test3.R",
+		"/home/riddhiman/cp/test4.R",
+		"/home/riddhiman/cp/main.R",
+		"/home/riddhiman/cp/closed.R",
+		"/home/riddhiman/cp/.gitignore",
+		"/home/riddhiman/cp/test2.R",
+		"/home/riddhiman/public_html/test2.php",
+		"/home/riddhiman/herokuenv/mysite/requirements.txt",
+		"/home/riddhiman/herokuenv/mysite/main2.py",
+		"/home/riddhiman/herokuenv/mysite/Procfile",
+		"/home/riddhiman/herokuenv/mysite/main.py",
+		"/home/riddhiman/herokuenv/mysite/mysite/main.py",
+		"/home/riddhiman/ml/comicbot/bot/genComic.py",
+		"/home/riddhiman/ml/comicbot/bot/views.py",
+		"/home/riddhiman/cp/README.md",
+		"/home/riddhiman/Desktop/Semester 6/NP & SM/BS1702-Part2.txt",
+		"/home/riddhiman/Desktop/Semester 6/NP & SM/somak.R",
+		"/home/riddhiman/Desktop/Semester 6/NP & SM/np_2_0.R",
+		"/home/riddhiman/Desktop/Semester 6/NP & SM/np_2.R",
+		"/home/riddhiman/Desktop/Semester 6/NP & SM/Rplots.pdf",
+		"/home/riddhiman/Desktop/Semester 6/DoE/2_1.R",
+		"/home/riddhiman/Desktop/Semester 6/DoE/2_2.R",
+		"/2_1.R",
+		"/home/riddhiman/pdf/pdf-redactor/causal_inference.txt",
+		"/home/riddhiman/pdf/pdf-redactor/code.py",
+		"/home/riddhiman/pdf/pdf-redactor/info2.txt",
+		"/home/riddhiman/pdf/pdf-redactor/info.txt",
+		"/home/riddhiman/ml/comicbot/bot/oglaf.py",
+		"/home/riddhiman/ml/comicbot/comicbot/urls.py",
+		"/home/riddhiman/ml/comicbot/comicbot/settings.py",
+		"/home/riddhiman/ml/comicbot/requirements.txt",
+		"/home/riddhiman/tel/bot/bot.py",
+		"/home/riddhiman/herokuenv/mysite/mysite/settings.py",
+		"/home/riddhiman/herokutestenv/herokutestproject/herokutestproject/settings.py",
+		"/home/riddhiman/herokutestenv/herokutestproject/Procfile",
+		"/home/riddhiman/ml/comicbot/bot/urls.py",
+		"/home/riddhiman/ml/test_project/settings.py",
+		"/home/riddhiman/report.Rmd",
+		"/home/riddhiman/Desktop/> colnames(dat)",
+		"/home/riddhiman/report.R",
+		"/home/riddhiman/Documents/code.R",
+		"/run/user/1000/gvfs/sftp:host=194.59.164.64,port=65002/home/u177244683/public_html/resistancemap/index2.php",
+		"/run/user/1000/gvfs/sftp:host=194.59.164.64,port=65002/home/u177244683/public_html/info.php",
+		"/plotData.R",
+		"/run/user/1000/gvfs/sftp:host=194.59.164.64,port=65002/home/u177244683/public_html/index.php",
+		"/home/riddhiman/ml/blog_project/blog/models.py",
+		"/home/riddhiman/ml/blog_project/blog/urls.py",
+		"/home/riddhiman/ml/blog_project/templates/post_detail.html",
+		"/home/riddhiman/ml/blog_project/templates/base.html",
+		"/home/riddhiman/ml/blog_project/templates/post_new.html",
+		"/home/riddhiman/ml/blog_project/blog/views.py",
+		"/home/riddhiman/ml/blog_project/templates/home.html",
+		"/home/riddhiman/ml/blog_project/blog_project/urls.py",
+		"/home/riddhiman/ml/blog_project/static/css/base.css",
+		"/home/riddhiman/ml/blog_project/blog_project/settings.py",
+		"/home/riddhiman/ml/blog_project/blog/admin.py",
+		"/home/riddhiman/ml/mb_project/mb_project/urls.py",
+		"/home/riddhiman/ml/mb_project/posts/urls.py",
+		"/home/riddhiman/ml/mb_project/templates/home.html",
+		"/home/riddhiman/ml/mb_project/posts/views.py",
+		"/home/riddhiman/ml/mb_project/posts/models.py",
+		"/home/riddhiman/ml/mb_project/mb_project/settings.py",
+		"/home/riddhiman/ml/mb_project/posts/admin.py",
+		"/home/riddhiman/ml/templates/about.html",
+		"/home/riddhiman/ml/templates/home.html",
+		"/home/riddhiman/ml/test_project/urls.py",
+		"/home/riddhiman/ml/templates/base.html",
+		"/home/riddhiman/ml/pages/urls.py",
+		"/home/riddhiman/ml/pages/views.py",
+		"/home/riddhiman/ml/mysite/polls/views.py",
+		"/home/riddhiman/ml/mysite/polls/urls.py",
+		"/home/riddhiman/ml/mysite/mysite/urls.py",
+		"/home/riddhiman/Desktop/TheEvent Free Website Template - Free-CSS.com/TheEvent/index.html",
+		"/home/riddhiman/Desktop/closed.R",
+		"/home/riddhiman/Desktop/loss.py",
+		"/home/riddhiman/Desktop/reg.R",
+		"/home/riddhiman/ml/test.py",
+		"/home/riddhiman/ml/ml.sublime-project",
+		"/home/riddhiman/Desktop/12.py",
+		"/home/riddhiman/.config/sublime-text-3/Packages/User/Anaconda.sublime-settings",
+		"/home/riddhiman/ml/test..py",
+		"/home/riddhiman/Desktop/mylm.R",
+		"/home/riddhiman/Desktop/ccmfi.R",
+		"/home/riddhiman/Desktop/jump.R",
+		"/home/riddhiman/Desktop/qwerty.R",
+		"/home/riddhiman/Desktop/rpah_15_03_2020_jason/project.R",
+		"/home/riddhiman/Desktop/Semester 6/NP & SM/kendall.R",
+		"/home/riddhiman/Desktop/test.R",
+		"/home/riddhiman/Desktop/proj.R",
+		"/home/riddhiman/Desktop/Semester 6/np_1.R",
+		"/home/riddhiman/Desktop/untitled.R",
+		"/home/riddhiman/pythoncode/newenv/pollster/pollster/wsgi.py",
+		"/home/riddhiman/pythoncode/newenv/pollster/polls/models.py",
+		"/home/riddhiman/pythoncode/newenv/pollster/polls/urls.py",
+		"/home/riddhiman/pythoncode/newenv/pollster/polls/views.py",
+		"/home/riddhiman/pythoncode/newenv/pollster/templates/polls/index.html",
+		"/home/riddhiman/.cache/.fr-SKotBd/assignment documents/assignment-week5 - Copy.Rmd"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "2048.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1846,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								163,
+								163
+							]
+						],
+						"settings":
+						{
+							"auto_name": "# 2048.py",
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 471.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1034,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1034,
+								1034
+							]
+						],
+						"settings":
+						{
+							"auto_name": "from",
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 186.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "dino.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1306,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								951,
+								951
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 19.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "predictCartPole.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 340,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "logic.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "# logic.py to be",
+							"show_definitions": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 108.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "2048.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 138.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

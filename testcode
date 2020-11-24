@@ -1,0 +1,12 @@
+import time
+a = env.reset()
+a = [a, ]
+for _ in range(500):
+    if a[0][2] <= 0:
+        a = env.step(0)
+    else:
+        a = env.step(1)
+    print(a)
+    env.render()
+    time.sleep(0.2)
+

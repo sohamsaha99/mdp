@@ -1,0 +1,10 @@
+# created by virtualenv automatically
+bin/
+chromedriver_linux64/
+include/
+lib/
+__pycache__/
+chromedriver
+*.zip
+pyvenv.cfg
+
