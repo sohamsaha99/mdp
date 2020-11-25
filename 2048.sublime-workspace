@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"cont",
+				"count"
+			],
+			[
+				"upd",
+				"updated_state"
+			],
+			[
+				"us",
+				"updated_state"
+			],
+			[
+				"in",
+				"index"
+			],
+			[
+				"R",
+				"Right-Green"
+			],
+			[
+				"Le",
+				"Left-Green"
+			],
+			[
 				"thea",
 				"theta"
 			],
@@ -126,10 +150,6 @@
 			[
 				"re",
 				"read_csv\tfunction"
-			],
-			[
-				"cont",
-				"contour\tstatement"
 			],
 			[
 				"imgc",
@@ -494,26 +514,6 @@
 			[
 				"selle",
 				"seller_address_2\tstatement"
-			],
-			[
-				"iete",
-				"item_line3\tstatement"
-			],
-			[
-				"item",
-				"item_line2\tstatement"
-			],
-			[
-				"it",
-				"item_line1\tstatement"
-			],
-			[
-				"ord",
-				"order_date\tstatement"
-			],
-			[
-				"inc",
-				"invoice_number\tstatement"
 			]
 		]
 	},
@@ -559,7 +559,7 @@
 			"file": "transitionMatrix.R",
 			"settings":
 			{
-				"buffer_size": 4828,
+				"buffer_size": 6160,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -840,6 +840,9 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"step",
+			"matr",
+			"print",
 			"High",
 			"Low"
 		],
@@ -907,8 +910,8 @@
 						"selection":
 						[
 							[
-								951,
-								951
+								1285,
+								1285
 							]
 						],
 						"settings":
@@ -918,10 +921,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 19.0,
+						"translation.y": 250.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -949,7 +952,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -965,8 +968,8 @@
 						"selection":
 						[
 							[
-								189,
-								189
+								11,
+								11
 							]
 						],
 						"settings":
@@ -986,15 +989,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4828,
+						"buffer_size": 6160,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2635,
-								2635
+								6160,
+								6160
 							]
 						],
 						"settings":
@@ -1002,7 +1005,7 @@
 							"syntax": "Packages/R/R.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 694.0,
+						"translation.y": 1841.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

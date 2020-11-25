@@ -8,5 +8,97 @@ for _ in range(500):
         a = env.step(1)
     print(a)
     env.render()
-    time.sleep(0.2)
+    time.sleep(0.02)
 
+getState = function(x) {
+    x = x - 1
+    a = x %/% 128
+    x = x - a * 128
+    b = x %/% 32
+    x = x - b * 32
+    c = x %/% 4
+    x = x - c * 4
+    d = x
+    matrix(c(a, b, c, d), ncol=4)
+}
+
+# Discarded code. Don't use. Correct.
+# Given continuous input, find the category
+get_discrete_state_old = function(x, v, theta, theta_dot) {
+    # States for position:
+    # [-3.2, -2.4), [-2.4, -1.6), [-1.6, -0.8), [-0.8, 0.0), [0.0, 0.8), [0.8, 1.6), [1.6, 2.4), [2.4, 3.2)
+    # Left-Forbidden, Left-Red, Left-Yellow, Left-Green, Right-Green, Right-Yellow, Right-Red, Right-Forbidden
+    if (x < -2.4) {
+        x_state = "Left-Forbidden"
+    } else if (x >= -2.4 & x < -1.6) {
+        x_state = "Left-Red"
+    } else if (x >= -1.6 & x < -0.8) {
+        x_state = "Left-Yellow"
+    } else if (x >= -0.8 & x < 0.0) {
+        x_state = "Left-Green"
+    } else if (x >= 0.0 & x < 0.8) {
+        x_state = "Right-Green"
+    } else if (x >= 0.8 & x < 1.6) {
+        x_state = "Right-Yellow"
+    } else if (x >= 1.6 & x < 2.4) {
+        x_state = "Right-Red"
+    } else if (x >= 2.4) {
+        x_state = "Right-Forbidden"
+    }
+
+    # States for angle
+    # [-16, -12), [-12, -8), [-8, -4), [-4, 0.0), [0.0, 4), [4, 8), [8, 12), [12, 16)
+    # Left-Forbidden, Left-Red, Left-Yellow, Left-Green, Right-Green, Right-Yellow, Right-Red, Right-Forbidden
+    theta = theta * 180 / pi
+    if (theta < -12) {
+        theta_state = "Left-Forbidden"
+    } else if (theta >= -12 & theta < -8) {
+        theta_state = "Left-Red"
+    } else if (theta >= -8 & theta < -4) {
+        theta_state = "Left-Yellow"
+    } else if (theta >= -4 & theta < 0) {
+        theta_state = "Left-Green"
+    } else if (theta >= 0 & theta < 4) {
+        theta_state = "Right-Green"
+    } else if (theta >= 4 & theta < 8) {
+        theta_state = "Right-Yellow"
+    } else if (theta >= 8 & theta < 12) {
+        theta_state = "Right-Red"
+    } else if (theta >= 12) {
+        theta_state = "Right-Forbidden"
+    }
+
+    # States for velocity
+    # [-1.0, -0.5), [-0.5, 0.0), [0.0, 0.5), [0.5, 1.0)
+    # Left-High, Left-Low, Right-Low, Right-High
+    if (v < -0.5) {
+        v_state = "Left-High"
+    } else if (v >= -0.5 & v < 0.0) {
+        v_state = "Left-Low"
+    } else if (v >= 0.0 & v < 0.5) {
+        v_state = "Right-Low"
+    } else if (v >= 0.5) {
+        v_state = "Right-High"
+    }
+
+    # States for angular velocity
+    # [-1.0, -0.5), [-0.5, 0.0), [0.0, 0.5), [0.5, 1.0)
+    # Left-High, Left-Low, Right-Low, Right-High
+    if (theta_dot < -0.5) {
+        theta_dot_state = "Left-High"
+    } else if (theta_dot >= -0.5 & theta_dot < 0.0) {
+        theta_dot_state = "Left-Low"
+    } else if (theta_dot >= 0.0 & theta_dot < 0.5) {
+        theta_dot_state = "Right-Low"
+    } else if (theta_dot >= 0.5) {
+        theta_dot_state = "Right-High"
+    }
+
+    # Get index in set of all combinations
+    index = as.numeric(factor(x_state, levels=x_levels, ordered=TRUE)) - 1
+    index = v_nlevels * index + as.numeric(factor(v_state, levels=v_levels, ordered=TRUE)) - 1
+    index = theta_nlevels * index + as.numeric(factor(theta_state, levels=theta_levels, ordered=TRUE)) - 1
+    index = theta_dot_nlevels * index + as.numeric(factor(theta_dot_state, levels=theta_dot_levels, ordered=TRUE)) - 1
+    index = index + 1
+    list(description=c(x_state, v_state, theta_state, theta_dot_state) ,index=index)
+}
