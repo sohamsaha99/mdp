@@ -6,12 +6,16 @@ L = 1.0
 tau = 0.02
 
 # Define Levels with orders
-x_levels = c("Left-Forbidden", "Left-Red", "Left-Yellow", "Left-Green", "Right-Green", "Right-Yellow", "Right-Red", "Right-Forbidden")
-x_breaks = c(-3.2, -2.4, -1.6, -0.8, 0.0, 0.8, 1.6, 2.4, 3.2)
+# x_levels = c("Left-Forbidden", "Left-Red", "Left-Yellow", "Left-Green", "Right-Green", "Right-Yellow", "Right-Red", "Right-Forbidden")
+# x_breaks = c(-3.2, -2.4, -1.6, -0.8, 0.0, 0.8, 1.6, 2.4, 3.2)
+x_levels = c("Left-Forbidden", "Left-Bad", "Good", "Right-Bad", "Right-Forbidden")
+x_breaks = c(-3.2, -2.4, -0.8, 0.8, 2.4, 3.2)
 v_levels = c("Left-High", "Left-Low", "Right-Low", "Right-High")
 v_breaks = c(-1.0, -0.5, 0.0, 0.5, 1.0)
-theta_levels = c("Left-Forbidden", "Left-Red", "Left-Yellow", "Left-Green", "Right-Green", "Right-Yellow", "Right-Red", "Right-Forbidden")
-theta_breaks = c(-16.0, -12.0, -8.0, -4.0, 0.0, 4.0, 8.0, 12.0, 16.0) * pi / 180
+# theta_levels = c("Left-Forbidden", "Left-Red", "Left-Yellow", "Left-Green", "Right-Green", "Right-Yellow", "Right-Red", "Right-Forbidden")
+# theta_breaks = c(-16.0, -12.0, -8.0, -4.0, 0.0, 4.0, 8.0, 12.0, 16.0) * pi / 180
+theta_levels = c("Left-Forbidden", "Left-Bad", "Good", "Right-Bad", "Right-Forbidden")
+theta_breaks = c(-24.0, -12.0, -4.0, 4.0, 12.0, 24.0)
 theta_dot_levels = c("Left-High", "Left-Low", "Right-Low", "Right-High")
 theta_dot_breaks = c(-1.0, -0.5, 0.0, 0.5, 1.0)
 x_nlevels = length(x_levels); x_breaks_min = min(x_breaks); x_breaks_max = max(x_breaks)
@@ -22,6 +26,24 @@ theta_dot_nlevels = length(theta_dot_levels); theta_dot_breaks_min = min(theta_d
 # Define count matrix
 n_states = x_nlevels * v_nlevels * theta_nlevels * theta_dot_nlevels
 count = matrix(0, nrow=n_states, ncol=n_states)
+
+getState = function(x) {
+    x = x - 1
+    a = x %/% (v_nlevels * theta_nlevels * theta_dot_nlevels)
+    a = x_levels[a+1]
+    x = x %% (v_nlevels * theta_nlevels * theta_dot_nlevels)
+    b = x %/% (theta_nlevels * theta_dot_nlevels)
+    b = v_levels[b+1]
+    x = x %% (theta_nlevels * theta_dot_nlevels)
+    c = x %/% theta_dot_nlevels
+    c = theta_levels[c+1]
+    x = x %% theta_dot_nlevels
+    d = x
+    d = theta_dot_levels[d+1]
+    M = matrix(c(a, b, c, d), ncol=4)
+    colnames(M) = c("x", "v", "theta", "theta_dot")
+    data.frame(M)
+}
 
 # Given continuous input, find the category
 get_discrete_state = function(x, v, theta, theta_dot) {
@@ -70,12 +92,35 @@ get_discrete_state = function(x, v, theta, theta_dot) {
     list(description=c(x_state, v_state, theta_state, theta_dot_state), index=index)
 }
 
-transitionMatrix = function(F, x_low, x_high, v_low, v_high, theta_low, theta_high, theta_dot_low, theta_dot_high) {
+# transitionMatrix = function(F, x_low, x_high, v_low, v_high, theta_low, theta_high, theta_dot_low, theta_dot_high) {
+transitionMatrix = function(F, x_state, v_state, theta_state, theta_dot_state) {
+    # Define boundary from state name
+    p = which(x_levels == x_state)
+    x_low = x_breaks[p]; x_high = x_breaks[p+1]
+    p = which(v_levels == v_state)
+    v_low = v_breaks[p]; v_high = v_breaks[p+1]
+    p = which(theta_levels == theta_state)
+    theta_low = theta_breaks[p]; theta_high = theta_breaks[p+1]
+    p = which(theta_dot_levels == theta_dot_state)
+    theta_dot_low = theta_dot_breaks[p]; theta_dot_high = theta_dot_breaks[p+1]
+    print(c(x_low, x_high, v_low, v_high, theta_low, theta_high, theta_dot_low, theta_dot_high))
+
+    # Modify boundaries to avoid overlap
+    eps = .Machine$double.eps * 1000
+    x_low = x_low + eps
+    x_high = x_high - eps
+    v_low = v_low + eps
+    v_high = v_high - eps
+    theta_low = theta_low + eps
+    theta_high = theta_high - eps
+    theta_dot_low = theta_dot_low + eps
+    theta_dot_high = theta_dot_high - eps
+
     # Sets to perform iteration
-    x_set = seq(x_low, x_high, by=0.05)
-    v_set = seq(v_low, v_high, by=0.05)
-    theta_set = seq(theta_low * 180 / pi, theta_high * 180 / pi, by=0.20) * pi / 180
-    theta_dot_set = seq(theta_dot_low, theta_dot_high, by=0.05)
+    x_set = seq(x_low, x_high, length.out=15)
+    v_set = seq(v_low, v_high, length.out=15)
+    theta_set = seq(theta_low, theta_high, length.out=15)
+    theta_dot_set = seq(theta_dot_low, theta_dot_high, length.out=15)
 
     # print(c(length(x_set), length(v_set), length(theta_set), length(theta_dot_set)))
 
@@ -123,4 +168,10 @@ transitionMatrix = function(F, x_low, x_high, v_low, v_high, theta_low, theta_hi
 
 # Example of function call
 eps = .Machine$double.eps
-P = transitionMatrix(F=0.0, x_low=-1.6+eps, x_high=-0.8-eps, v_low=0.0+eps, v_high=0.5-eps, theta_low=-8*pi/180+eps, theta_high=-4*pi/180-eps, theta_dot_low=-0.5+eps, theta_dot_high=0.0-eps)
+# P = transitionMatrix(F=0.0, x_low=-1.6+eps, x_high=-0.8-eps, v_low=0.0+eps, v_high=0.5-eps, theta_low=-8*pi/180+eps, theta_high=-4*pi/180-eps, theta_dot_low=-0.5+eps, theta_dot_high=0.0-eps)
+P = transitionMatrix(F=0.0, x_state="Right-Forbidden", v_state="Right-High", theta_state="Right-Forbidden", theta_dot_state="Right-High")
+
+u = rowSums(P)
+print(cbind(getState(which(u != 0)), u[u != 0]))
+v = colSums(P)
+print(cbind(getState(which(v != 0)), v[v != 0]))
