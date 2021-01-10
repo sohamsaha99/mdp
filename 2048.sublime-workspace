@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"st",
+				"state_space"
+			],
+			[
+				"G",
+				"Good"
+			],
+			[
 				"thdl",
 				"theta_dot_levels"
 			],
@@ -110,10 +118,6 @@
 			[
 				"sigm",
 				"sigma_21"
-			],
-			[
-				"G",
-				"G_square"
 			],
 			[
 				"n_",
@@ -510,29 +514,25 @@
 			[
 				"uni",
 				"unique\t{base}"
-			],
-			[
-				"lo",
-				"load"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "testcode",
+			"file": "transitionMatrix.R",
 			"settings":
 			{
-				"buffer_size": 3559,
+				"buffer_size": 7663,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "transitionMatrix.R",
+			"file": "predictCartPole.py",
 			"settings":
 			{
-				"buffer_size": 7489,
+				"buffer_size": 761,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -669,6 +669,7 @@
 	"file_history":
 	[
 		"/home/riddhiman/projects/2048/predictCartPole.py",
+		"/home/riddhiman/projects/2048/testcode",
 		"/home/riddhiman/projects/2048/main.py",
 		"/home/riddhiman/projects/2048/dino.py",
 		"/home/riddhiman/projects/2048/2048.py",
@@ -794,8 +795,7 @@
 		"/home/riddhiman/Desktop/test.R",
 		"/home/riddhiman/Desktop/proj.R",
 		"/home/riddhiman/Desktop/Semester 6/np_1.R",
-		"/home/riddhiman/Desktop/untitled.R",
-		"/home/riddhiman/pythoncode/newenv/pollster/pollster/wsgi.py"
+		"/home/riddhiman/Desktop/untitled.R"
 	],
 	"find":
 	{
@@ -842,47 +842,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "testcode",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3559,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								382,
-								382
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "transitionMatrix.R",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7489,
+						"buffer_size": 7663,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7446,
-								7446
+								7379,
+								7379
 							]
 						],
 						"settings":
@@ -890,7 +862,35 @@
 							"syntax": "Packages/R/R.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2111.0,
+						"translation.y": 2308.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "predictCartPole.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 761,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								760,
+								760
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

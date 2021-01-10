@@ -24,8 +24,8 @@ theta_nlevels = length(theta_levels); theta_breaks_min = min(theta_breaks); thet
 theta_dot_nlevels = length(theta_dot_levels); theta_dot_breaks_min = min(theta_dot_breaks); theta_dot_breaks_max = max(theta_dot_breaks)
 
 # Define count matrix
-n_states = x_nlevels * v_nlevels * theta_nlevels * theta_dot_nlevels
-count = matrix(0, nrow=n_states, ncol=n_states)
+# n_states = x_nlevels * v_nlevels * theta_nlevels * theta_dot_nlevels
+# count = matrix(0, nrow=n_states, ncol=n_states)
 
 getState = function(x) {
     x = x - 1
@@ -93,7 +93,7 @@ get_discrete_state = function(x, v, theta, theta_dot) {
 }
 
 # transitionMatrix = function(F, x_low, x_high, v_low, v_high, theta_low, theta_high, theta_dot_low, theta_dot_high) {
-transitionMatrix = function(F, x_state, v_state, theta_state, theta_dot_state) {
+transitionMatrix = function(F, x_state, v_state, theta_state, theta_dot_state, h=15) {
     # Define boundary from state name
     p = which(x_levels == x_state)
     x_low = x_breaks[p]; x_high = x_breaks[p+1]
@@ -104,6 +104,10 @@ transitionMatrix = function(F, x_state, v_state, theta_state, theta_dot_state) {
     p = which(theta_dot_levels == theta_dot_state)
     theta_dot_low = theta_dot_breaks[p]; theta_dot_high = theta_dot_breaks[p+1]
     print(c(x_low, x_high, v_low, v_high, theta_low, theta_high, theta_dot_low, theta_dot_high))
+
+    # Define count matrix
+    n_states = x_nlevels * v_nlevels * theta_nlevels * theta_dot_nlevels
+    count = matrix(0, nrow=n_states, ncol=n_states)
 
     # Modify boundaries to avoid overlap
     eps = .Machine$double.eps * 1000
@@ -117,10 +121,10 @@ transitionMatrix = function(F, x_state, v_state, theta_state, theta_dot_state) {
     theta_dot_high = theta_dot_high - eps
 
     # Sets to perform iteration
-    x_set = seq(x_low, x_high, length.out=15)
-    v_set = seq(v_low, v_high, length.out=15)
-    theta_set = seq(theta_low, theta_high, length.out=15)
-    theta_dot_set = seq(theta_dot_low, theta_dot_high, length.out=15)
+    x_set = seq(x_low, x_high, length.out=h)
+    v_set = seq(v_low, v_high, length.out=h)
+    theta_set = seq(theta_low, theta_high, length.out=h)
+    theta_dot_set = seq(theta_dot_low, theta_dot_high, length.out=h)
 
     # print(c(length(x_set), length(v_set), length(theta_set), length(theta_dot_set)))
 
@@ -167,11 +171,57 @@ transitionMatrix = function(F, x_state, v_state, theta_state, theta_dot_state) {
 }
 
 # Example of function call
+F = 10.0
 eps = .Machine$double.eps
 # P = transitionMatrix(F=0.0, x_low=-1.6+eps, x_high=-0.8-eps, v_low=0.0+eps, v_high=0.5-eps, theta_low=-8*pi/180+eps, theta_high=-4*pi/180-eps, theta_dot_low=-0.5+eps, theta_dot_high=0.0-eps)
-P = transitionMatrix(F=0.0, x_state="Right-Forbidden", v_state="Right-High", theta_state="Right-Forbidden", theta_dot_state="Right-High")
+P = transitionMatrix(F=F, x_state="Right-Forbidden", v_state="Right-High", theta_state="Good", theta_dot_state="Right-High", h=6)
 
 u = rowSums(P)
 print(cbind(getState(which(u != 0)), u[u != 0]))
 v = colSums(P)
-print(cbind(getState(which(v != 0)), v[v != 0]))
+print(cbind(getState(which(v != 0)), v[v != 0] / sum(P)))
+Q = P / rowSums(P)
+Q[is.nan(Q)] = 0.0
+# write.table(Q, file=paste0("F=", sprintf("%.1f", F), "_transition_matrix.csv"), sep=",", col.names=FALSE, row.names=FALSE)
+
+
+# Define Transition matrix
+n_states = x_nlevels * v_nlevels * theta_nlevels * theta_dot_nlevels
+P_matrix = matrix(0, nrow=n_states, ncol=n_states)
+
+for (x in x_levels) {
+    for (v in v_levels) {
+        for (theta in theta_levels) {
+            for (theta_dot in theta_dot_levels) {
+                P = transitionMatrix(F=F, x_state=x, v_state=v, theta_state=theta, theta_dot_state=theta_dot, h=6)
+                Q = P / rowSums(P)
+                Q[is.nan(Q)] = 0.0
+                P_matrix = P_matrix + Q
+            }
+        }
+    }
+}
+
+# write.table(P_matrix, file=paste0("F=", sprintf("%.1f", F), "_transition_matrix.csv"), sep=",", col.names=FALSE, row.names=FALSE)
+
+# Create Reward matrix
+F_levels = c("negative", "positive")
+F_values = c(-10, 10)
+n_actions = length(F_levels)
+Reward_matrix = matrix(0, nrow=n_states, ncol=n_actions)
+for(i in 1:nrow(Reward_matrix)) {
+    v = getState(i)
+    if((which(x_levels == v[, 1]) %in% c(1, x_nlevels)) | (which(theta_levels == v[, 3]) %in% c(1, theta_nlevels))) {
+        Reward_matrix[i, ] = -10.0
+    } else {
+        Reward_matrix[i, ] = 1.0
+    }
+}
+
+# Run MDPtoolbox with the transition matrices and reward matrix
+# library(MDPtoolbox)
+# neg = read.table("F=-10.0_transition_matrix.csv", header=FALSE, sep=",")
+# pos = read.table("F=10.0_transition_matrix.csv", header=FALSE, sep=",")
+# T = list(negative=neg, positive=pos)
+# mdp_check(T, Reward_matrix) # empty string => ok
+# m <- mdp_policy_iteration(P=T, R=Reward_matrix, discount=0.9)
