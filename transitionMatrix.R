@@ -15,9 +15,9 @@ v_breaks = c(-1.0, -0.5, 0.0, 0.5, 1.0)
 # theta_levels = c("Left-Forbidden", "Left-Red", "Left-Yellow", "Left-Green", "Right-Green", "Right-Yellow", "Right-Red", "Right-Forbidden")
 # theta_breaks = c(-16.0, -12.0, -8.0, -4.0, 0.0, 4.0, 8.0, 12.0, 16.0) * pi / 180
 theta_levels = c("Left-Forbidden", "Left-Bad", "Good", "Right-Bad", "Right-Forbidden")
-theta_breaks = c(-24.0, -12.0, -4.0, 4.0, 12.0, 24.0)
+theta_breaks = c(-24.0, -12.0, -4.0, 4.0, 12.0, 24.0) * pi / 180
 theta_dot_levels = c("Left-High", "Left-Low", "Right-Low", "Right-High")
-theta_dot_breaks = c(-1.0, -0.5, 0.0, 0.5, 1.0)
+theta_dot_breaks = c(-1.0, -0.5, 0.0, 0.5, 1.0)# * pi / 180
 x_nlevels = length(x_levels); x_breaks_min = min(x_breaks); x_breaks_max = max(x_breaks)
 v_nlevels = length(v_levels); v_breaks_min = min(v_breaks); v_breaks_max = max(v_breaks)
 theta_nlevels = length(theta_levels); theta_breaks_min = min(theta_breaks); theta_breaks_max = max(theta_breaks)
@@ -219,9 +219,34 @@ for(i in 1:nrow(Reward_matrix)) {
 }
 
 # Run MDPtoolbox with the transition matrices and reward matrix
-# library(MDPtoolbox)
-# neg = read.table("F=-10.0_transition_matrix.csv", header=FALSE, sep=",")
-# pos = read.table("F=10.0_transition_matrix.csv", header=FALSE, sep=",")
-# T = list(negative=neg, positive=pos)
-# mdp_check(T, Reward_matrix) # empty string => ok
-# m <- mdp_policy_iteration(P=T, R=Reward_matrix, discount=0.9)
+library(MDPtoolbox)
+neg = read.table("F=-10.0_transition_matrix.csv", header=FALSE, sep=","); neg = as.matrix(neg)
+pos = read.table("F=10.0_transition_matrix.csv", header=FALSE, sep=","); pos = as.matrix(pos)
+T = list(negative=neg, positive=pos)
+mdp_check(T, Reward_matrix) # empty string => ok
+m <- mdp_policy_iteration(P=T, R=Reward_matrix, discount=0.9)
+
+
+# Call python gym environment
+library(reticulate)
+py_run_string("import gym")
+py_run_string("env = gym.make('CartPole-v0')")
+py_run_string("observation = env.reset()")
+
+# while(TRUE)
+for(j in 1:100) {
+    i = get_discrete_state(py$observation[1], py$observation[2], py$observation[3], py$observation[4])$index
+    if(names(T)[m$policy[i]] == "positive") {
+        action = 0
+    } else {
+        action = 1
+    }
+    py_run_string("observation, reward, done, info = env.step(action)")
+    py_run_string("env.render()")
+    print(c(py$observation, action))
+    Sys.sleep(0.02)
+    # if(py$done) {
+    #     break
+    # }
+}
+py_run_string("env.close()")
