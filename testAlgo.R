@@ -8,7 +8,7 @@ for(i in 1:nrow(Reward_matrix)) {
     if((which(x_levels == v[, 1]) %in% c(1, x_nlevels)) | (which(theta_levels == v[, 3]) %in% c(1, theta_nlevels))) {
         Reward_matrix[i, ] = -10.0
     } else if((which(x_levels == v[, 1]) %in% c((1 + x_nlevels) / 2)) & (which(theta_levels == v[, 3]) %in% c((1 + theta_nlevels) / 2))) {
-        Reward_matrix[i, ] = 5.0
+        Reward_matrix[i, ] = 2.0
     } else {
         Reward_matrix[i, ] = 0.0
     }
@@ -16,13 +16,13 @@ for(i in 1:nrow(Reward_matrix)) {
 
 # Run MDPtoolbox with the transition matrices and reward matrix
 library(MDPtoolbox)
-neg = read.table("F=-10.0_transition_matrix_new.csv", header=FALSE, sep=","); neg = as.matrix(neg)
-pos = read.table("F=10.0_transition_matrix_new.csv", header=FALSE, sep=","); pos = as.matrix(pos)
-zero = read.table("F=0.0_transition_matrix_new.csv", header=FALSE, sep=","); zero = as.matrix(zero)
-neg_low = read.table("F=-5.0_transition_matrix_new.csv", header=FALSE, sep=","); neg_low = as.matrix(neg_low)
-pos_low = read.table("F=5.0_transition_matrix_new.csv", header=FALSE, sep=","); pos_low = as.matrix(pos_low)
-neg_high = read.table("F=-10.0_transition_matrix_new.csv", header=FALSE, sep=","); neg_high = as.matrix(neg_high)
-pos_high = read.table("F=10.0_transition_matrix_new.csv", header=FALSE, sep=","); pos_high = as.matrix(pos_high)
+neg = read.table("F=-10.0_transition_matrix_0111.csv", header=FALSE, sep=","); neg = as.matrix(neg)
+pos = read.table("F=10.0_transition_matrix_0111.csv", header=FALSE, sep=","); pos = as.matrix(pos)
+zero = read.table("F=0.0_transition_matrix_0111.csv", header=FALSE, sep=","); zero = as.matrix(zero)
+neg_low = read.table("F=-5.0_transition_matrix_0111.csv", header=FALSE, sep=","); neg_low = as.matrix(neg_low)
+pos_low = read.table("F=5.0_transition_matrix_0111.csv", header=FALSE, sep=","); pos_low = as.matrix(pos_low)
+neg_high = read.table("F=-10.0_transition_matrix_0111.csv", header=FALSE, sep=","); neg_high = as.matrix(neg_high)
+pos_high = read.table("F=10.0_transition_matrix_0111.csv", header=FALSE, sep=","); pos_high = as.matrix(pos_high)
 
 T = list(zero=zero, negative=neg, positive=pos)
 # T = list(positive=pos, negative=neg)
@@ -42,9 +42,9 @@ py_run_string("observation = env.reset()")
 
 # while(TRUE)
 bad_j = NULL
-for (i_try in 1:10) {
-    for(j in 1:250) {
-        i = get_discrete_state(py$observation[1], py$observation[2], py$observation[3], py$observation[4])$index
+for (i_try in 1:2) {
+    for(j in 1:3500) {
+        i = get_discrete_state(py$observation[1], py$observation[2], (py$observation[3] + pi) %% (2 * pi) - pi, py$observation[4])$index
         if(names(T)[m$policy[i]] == "positive_high") {
             action = 10
             py_run_string("observation, reward, done, info = env.step(1)")
@@ -73,8 +73,8 @@ for (i_try in 1:10) {
         # Sys.sleep(0.01)
         if(py$done) {
             bad_j = c(bad_j, j)
-            print(sprintf("FINISHED AFTER %d STEPS", j))
-            break
+            # print(sprintf("FINISHED AFTER %d STEPS", j))
+            # break
         }
     }
     py_run_string("env.close()")
