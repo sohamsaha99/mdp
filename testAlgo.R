@@ -36,8 +36,8 @@ m <- mdp_value_iteration(P=T, R=Reward_matrix, discount=0.9, max_iter=50, epsilo
 
 # Call python gym environment
 library(reticulate)
-py_run_string("import gym")
 use_python("bin/python")
+py_run_string("import gym")
 py_run_file("utils.py")
 py_run_string("env = gym.make('CartPole-v0')")
 

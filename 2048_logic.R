@@ -1,4 +1,6 @@
 target = 32
+n_states = (log(target, base=2) + 1) ^ 4
+n_actions = 4
 
 getState = function(x) {
     x = x - 1
@@ -22,7 +24,7 @@ encodeState = function(v) {
     d = log(d, base=2)
     k = log(target, base=2) + 1
 
-    min(1296, 1 + d + k * c + k^2 * b + k^3 * a)
+    min(n_states, 1 + d + k * c + k^2 * b + k^3 * a)
 }
 
 ### v = c(a, b, c, d)
@@ -169,8 +171,6 @@ moveDown = function(v) {
 }
 
 ## Create transition matrix
-n_states = (log(target, base=2) + 1) ^ 4
-n_actions = 4
 P_right = matrix(0, nrow=n_states, ncol=n_states)
 for (i in 1:nrow(P_right)) {
     output = moveRight(getState(i))
@@ -191,7 +191,7 @@ for (i in 1:nrow(P_left)) {
 }
 P_up = matrix(0, nrow=n_states, ncol=n_states)
 for (i in 1:nrow(P_up)) {
-    output = moveRight(getState(i))
+    output = moveUp(getState(i))
     nextStates = output$nextStates
     probs = output$probs
     for (j in 1:length(probs)) {
@@ -200,7 +200,7 @@ for (i in 1:nrow(P_up)) {
 }
 P_down = matrix(0, nrow=n_states, ncol=n_states)
 for (i in 1:nrow(P_down)) {
-    output = moveRight(getState(i))
+    output = moveDown(getState(i))
     nextStates = output$nextStates
     probs = output$probs
     for (j in 1:length(probs)) {
@@ -217,5 +217,26 @@ for(i in 1:nrow(Reward)) {
 }
 
 library(MDPtoolbox)
-T = list("down"=P_down, "left"=P_left, "right"=P_right, "up"=P_up)
+T = list("DOWN"=P_down, "LEFT"=P_left, "RIGHT"=P_right, "UP"=P_up)
 m = mdp_value_iteration(P=T, R=Reward, discount=0.9)
+
+library(reticulate)
+use_python("bin/python")
+py_run_file("2048_website.py")
+py_run_string("status = getBoardStatus(htmlElem)")
+current_state = encodeState(py$status)
+for (i in 1:100) {
+    old_state = current_state
+    action = names(T)[m$policy[current_state]]
+    print(action)
+    py_run_string(paste0("htmlElem.send_keys(Keys.", action, ")"))
+    Sys.sleep(1)
+    py_run_string("status = getBoardStatus(htmlElem)")
+    current_state = encodeState(py$status)
+    if(old_state == current_state) {
+        print("FINISHED")
+        break
+    }
+}
+Sys.sleep(8)
+py_run_string("driver.close()")
