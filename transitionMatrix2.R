@@ -31,7 +31,7 @@ theta_nlevels = length(theta_levels); theta_breaks_min = min(theta_breaks); thet
 theta_dot_nlevels = length(theta_dot_levels); theta_dot_breaks_min = min(theta_dot_breaks); theta_dot_breaks_max = max(theta_dot_breaks)
 
 # Define count matrix
-# n_states = x_nlevels * v_nlevels * theta_nlevels * theta_dot_nlevels
+n_states = x_nlevels * v_nlevels * theta_nlevels * theta_dot_nlevels
 # count = matrix(0, nrow=n_states, ncol=n_states)
 
 getState = function(x) {
