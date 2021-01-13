@@ -10,7 +10,9 @@ driver = webdriver.Chrome(options=options, executable_path="./chromedriver_linux
 
 # driver.get("https://play2048.co")
 # driver.get("https://play2048game.net/game/2048-3x3/#:~:text=2048%203x3%20game%20is%20web,right%20on%20the%20game%20board.")
-driver.get("https://cyberzhg.github.io/2048/index.html?size=2&mode=normal")
+# driver.get("https://cyberzhg.github.io/2048/index.html?size=2&mode=normal")
+driver.get("https://sohamsaha99.github.io/2147483648.html?size=2&mode=normal")
+# driver.get("file:///home/riddhiman/pres/reveal.js/2147483648.html?size=2&mode=normal")
 # try:
 #     driver.get("brave://dino")
 # except:

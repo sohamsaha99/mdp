@@ -223,6 +223,9 @@ m = mdp_value_iteration(P=T, R=Reward, discount=0.9)
 library(reticulate)
 use_python("bin/python")
 py_run_file("2048_website.py")
+py_run_string(paste0("driver.execute_script('Math.seedrandom(", '"9")', "')"))
+py_run_string("htmlElem.send_keys(Keys.SPACE)")
+Sys.sleep(1)
 py_run_string("status = getBoardStatus(htmlElem)")
 current_state = encodeState(py$status)
 for (i in 1:100) {
@@ -238,5 +241,5 @@ for (i in 1:100) {
         break
     }
 }
-Sys.sleep(8)
+# Sys.sleep(8)
 py_run_string("driver.close()")
