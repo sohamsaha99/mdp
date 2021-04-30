@@ -30,9 +30,9 @@ T = list(zero=zero, negative=neg, positive=pos)
 T = list(zero=zero, negative_low=neg_low, positive_low=pos_low, negative_high=neg_high, positive_high=pos_high)
 mdp_check(T, Reward_matrix) # empty string => ok
 # m <- mdp_policy_iteration(P=T, R=Reward_matrix, discount=0.8)
-m <- mdp_value_iteration(P=T, R=Reward_matrix, discount=0.9, max_iter=50, epsilon=0.01)
-# m <- mdp_policy_iteration_modified(P=T, R=Reward_matrix, discount=0.9)
-
+# m <- mdp_value_iteration(P=T, R=Reward_matrix, discount=0.9, max_iter=50)
+m <- mdp_policy_iteration_modified(P=T, R=Reward_matrix, discount=0.9)
+print(m$iter)
 
 # Call python gym environment
 library(reticulate)
@@ -44,10 +44,11 @@ py_run_string("env = gym.make('CartPole-v0')")
 
 # while(TRUE)
 bad_j = NULL
+DEATH = NULL
 for (i_try in 1:3) {
     py_run_string("observation = env.reset()")
     py_run_string("frames = []")
-    for(j in 1:250) {
+    for(j in 1:200) {
         # py_run_string("frames.append(env.render(mode='rgb_array'))")
         i = get_discrete_state(py$observation[1], py$observation[2], (py$observation[3] + pi) %% (2 * pi) - pi, py$observation[4])$index
         # i = get_discrete_state(py$observation[1] + rnorm(1, 0, 0.25), py$observation[2] + rnorm(1, 0, 0.16), (py$observation[3] + pi) %% (2 * pi) - pi +  + rnorm(1, 0, 0.06), py$observation[4] + rnorm(1, 0, 0.16))$index
@@ -77,10 +78,12 @@ for (i_try in 1:3) {
         # py_run_string("observation, reward, done, info = env.step(action)")
         py_run_string("env.render()")
         # print(c(py$observation, action))
-        Sys.sleep(0.01)
+        Sys.sleep(0.02)
         if(py$done) {
             bad_j = c(bad_j, j)
             print(sprintf("FINISHED AFTER %d STEPS", j))
+            Sys.sleep(1)
+            DEATH = c(DEATH, j)
             break
         }
     }

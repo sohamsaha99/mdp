@@ -219,27 +219,52 @@ for(i in 1:nrow(Reward)) {
 library(MDPtoolbox)
 T = list("DOWN"=P_down, "LEFT"=P_left, "RIGHT"=P_right, "UP"=P_up)
 m = mdp_value_iteration(P=T, R=Reward, discount=0.9)
+print(m$iter)
 
 library(reticulate)
 use_python("bin/python")
 py_run_file("2048_website.py")
-py_run_string(paste0("driver.execute_script('Math.seedrandom(", '"9")', "')"))
-py_run_string("htmlElem.send_keys(Keys.SPACE)")
-Sys.sleep(1)
-py_run_string("status = getBoardStatus(htmlElem)")
-current_state = encodeState(py$status)
-for (i in 1:100) {
-    old_state = current_state
-    action = names(T)[m$policy[current_state]]
-    print(action)
-    py_run_string(paste0("htmlElem.send_keys(Keys.", action, ")"))
+RESULT = NULL
+for(i_episode in 1:10) {
+    py_run_string(paste0("driver.execute_script('Math.seedrandom(", '"', paste(i_episode), '")', "')"))
+    py_run_string("htmlElem.send_keys(Keys.SPACE)")
     Sys.sleep(1)
     py_run_string("status = getBoardStatus(htmlElem)")
     current_state = encodeState(py$status)
-    if(old_state == current_state) {
-        print("FINISHED")
-        break
+    for (i in 1:100) {
+        old_state = current_state
+        action = names(T)[m$policy[current_state]]
+        ############### RANDOM POLICY ##############################
+        # action = names(T)[sample(4, 1)]
+        # print(action)
+        py_run_string(paste0("htmlElem.send_keys(Keys.", action, ")"))
+        Sys.sleep(0.8)
+        py_run_string("status = getBoardStatus(htmlElem)")
+        current_state = encodeState(py$status)
+        if(old_state == current_state) {
+            print("FINISHED")
+            RESULT = c(RESULT, max(getState(current_state)))
+            break
+        }
     }
 }
+# py_run_string(paste0("driver.execute_script('Math.seedrandom(", '"5")', "')"))
+# py_run_string("htmlElem.send_keys(Keys.SPACE)")
+# Sys.sleep(1)
+# py_run_string("status = getBoardStatus(htmlElem)")
+# current_state = encodeState(py$status)
+# for (i in 1:100) {
+#     old_state = current_state
+#     action = names(T)[m$policy[current_state]]
+#     print(action)
+#     py_run_string(paste0("htmlElem.send_keys(Keys.", action, ")"))
+#     Sys.sleep(1)
+#     py_run_string("status = getBoardStatus(htmlElem)")
+#     current_state = encodeState(py$status)
+#     if(old_state == current_state) {
+#         print("FINISHED")
+#         break
+#     }
+# }
 # Sys.sleep(8)
-py_run_string("driver.close()")
+# py_run_string("driver.close()")

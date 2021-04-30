@@ -226,7 +226,7 @@ for(i in 1:nrow(Reward_matrix)) {
     if((which(x_levels == v[, 1]) %in% c(1, x_nlevels)) | (which(theta_levels == v[, 3]) %in% c(1, theta_nlevels))) {
         Reward_matrix[i, ] = -10.0
     } else {
-        Reward_matrix[i, ] = 1.0
+        Reward_matrix[i, ] = 0.0
     }
 }
 

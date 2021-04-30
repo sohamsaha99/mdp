@@ -33,5 +33,5 @@ while True:
     else:
         htmlElem.send_keys(Keys.RIGHT)
 
-    time.sleep(0.5)
-    print(r)
+    time.sleep(0.2)
+    # print(r)
